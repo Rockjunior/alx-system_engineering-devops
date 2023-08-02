@@ -1,2 +1,3 @@
 #!/bin/bash
-/tmp/correction/6814013876815288409099377261232218662616_5/205/452840/0x00-shell_basics/0-current_working_directory
+pwd
+
