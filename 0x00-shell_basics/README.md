@@ -1,1 +1,5 @@
-The file '0-current_working_directory' contains the file directory
+This directory has the shell commands for navigation in:
+	modification -> chmod
+	chgrp	
+	ls
+	chown
