@@ -1,2 +1,2 @@
-#!/bash/bash
-find . -type d -not -name '.' | wc -l
+#!/bin/bash
+find . -type d -not -path "." -not -path "./.*" -printf "1\n" | wc -l
