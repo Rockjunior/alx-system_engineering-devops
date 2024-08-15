@@ -1,18 +1,16 @@
 #!/usr/bin/python3
-"""This module contains number_of_subscribers function"""
-
+"""Function to query subscribers on a given Reddit subreddit."""
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """
-    a function that queries the Reddit API
-    andreturns the number of subscribers
-    """
-
-    url = "https://api.reddit.com/r/{}/about/".format(subreddit)
-    u_agent = {'User-Agent': '/u/Suspicious-Jelly920'}
-    result = requests.get(url, headers=u_agent)
-    if result.status_code == 200:
-        return (result.json()['data']['subscribers'])
-    return (0)
+    """Return the total number of subscribers on a given subreddit."""
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    headers = {
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"
+    }
+    response = requests.get(url, headers=headers, allow_redirects=False)
+    if response.status_code == 404:
+        return 0
+    results = response.json().get("data")
+    return results.get("subscribers")
